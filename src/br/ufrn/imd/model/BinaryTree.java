@@ -6,15 +6,15 @@ import java.util.Stack;
 
 public class BinaryTree implements IBinaryTree {
 
-    private Node j = new Node("J", null, null);
-    private Node i = new Node("I", null, null);
-    private Node h = new Node("H", null, null);
-    private Node f = new Node("F", i, null);
-    private Node e = new Node("E", null, null);
-    private Node d = new Node("D", null, j);
-    private Node c = new Node("C", e, f);
-    private Node b = new Node("B", d, h);
-    private Node a = new Node("A", b, c);
+    private Node j = new Node(9,"J", null, null);
+    private Node i = new Node(8,"I", null, null);
+    private Node h = new Node(7,"H", null, null);
+    private Node f = new Node(6,"F", i, null);
+    private Node e = new Node(5,"E", null, null);
+    private Node d = new Node(4,"D", null, j);
+    private Node c = new Node(3,"C", e, f);
+    private Node b = new Node(2,"B", d, h);
+    private Node a = new Node(1,"A", b, c);
 
     private Node root = a;
 
@@ -58,7 +58,7 @@ public class BinaryTree implements IBinaryTree {
                     n.setHeight(rightHeight + 1);
                 }
             }
-            System.out.print(" <" + n.getHeight() + ",[" + n.getKey() + "]>");
+            System.out.print(" <" + n.getHeight() + ",[" + n.getName() + "]>");
         }
     }
 
@@ -74,7 +74,7 @@ public class BinaryTree implements IBinaryTree {
         queue.add(root);
         while (!queue.isEmpty()) {
             Node temp = queue.poll();
-            System.out.print(" [" + temp.getKey() + "]");
+            System.out.print(" [" + temp.getName() + "]");
             if (temp.getLeftNode() != null) {
                 queue.add(temp.getLeftNode());
             }
@@ -136,7 +136,7 @@ public class BinaryTree implements IBinaryTree {
 
     private void preOrder(Node n) {
         if (n != null) {
-            System.out.print(" [" + n.getKey() + "]");
+            System.out.print(" [" + n.getName() + "]");
             preOrder(n.getLeftNode());
             preOrder(n.getRightNode());
         }
@@ -145,7 +145,7 @@ public class BinaryTree implements IBinaryTree {
     private void inOrder(Node n) {
         if (n != null) {
             inOrder(n.getLeftNode());
-            System.out.print(" [" + n.getKey() + "]");
+            System.out.print(" [" + n.getName() + "]");
             inOrder(n.getRightNode());
         }
     }
@@ -154,7 +154,7 @@ public class BinaryTree implements IBinaryTree {
         if (n != null) {
             postOrder(n.getLeftNode());
             postOrder(n.getRightNode());
-            System.out.print(" [" + n.getKey() + "]");
+            System.out.print(" [" + n.getName() + "]");
         }
     }
 
@@ -165,7 +165,7 @@ public class BinaryTree implements IBinaryTree {
         nodeStack.push(n);
         while (!nodeStack.empty()) {
             Node temp = nodeStack.peek();
-            System.out.print(" [" + temp.getKey() + "]");
+            System.out.print(" [" + temp.getName() + "]");
             nodeStack.pop();
             if (temp.getRightNode() != null) {
                 nodeStack.push(temp.getRightNode());
@@ -186,7 +186,7 @@ public class BinaryTree implements IBinaryTree {
                 temp = temp.getLeftNode();
             }
             temp = nodeStack.pop();
-            System.out.print(" [" + temp.getKey() + "]");
+            System.out.print(" [" + temp.getName() + "]");
             temp = temp.getRightNode();
         }
     }
@@ -207,7 +207,7 @@ public class BinaryTree implements IBinaryTree {
             if (!stack.empty() && stack.peek() == temp) {
                 temp = temp.getRightNode();
             } else {
-                System.out.print(" [" + temp.getKey() + "]");
+                System.out.print(" [" + temp.getName() + "]");
                 temp = null;
             }
         }
@@ -220,7 +220,7 @@ public class BinaryTree implements IBinaryTree {
         Node x = s.peek();
         s.pop();
         printStack(s);
-        System.out.print("(" + x.getKey() + ") ");
+        System.out.print("(" + x.getName() + ") ");
         s.push(x);
     }
 

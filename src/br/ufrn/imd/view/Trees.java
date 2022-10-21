@@ -1,6 +1,7 @@
 package br.ufrn.imd.view;
 
 import br.ufrn.imd.model.BinaryTree;
+import br.ufrn.imd.model.IBinaryTree;
 
 /**
  * Trees
@@ -8,7 +9,7 @@ import br.ufrn.imd.model.BinaryTree;
 public class Trees {
 
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
+        IBinaryTree tree = new BinaryTree();
 
         System.out.println("[DEPTH-FIRST SEARCH]");
         System.out.println("- Recursive methods");
